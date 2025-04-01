@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Я тебя люблю</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        .love-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        .love-text {
+            color: red;
+            font-size: 24px;
+            margin: 10px;
+            padding: 5px;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="love-container" id="loveContainer">
+        <!-- Надписи будут добавляться JavaScript -->
+    </div>
+
+    <script>
+        const container = document.getElementById('loveContainer');
+        const loveText = "я тебя люблю";
+        const count = 200; // Количество надписей
+        
+        for (let i = 0; i < count; i++) {
+            const element = document.createElement('div');
+            element.className = 'love-text';
+            element.textContent = loveText;
+            
+            // Случайный размер шрифта
+            const size = Math.random() * 20 + 16;
+            element.style.fontSize = `${size}px`;
+            
+            // Случайная прозрачность
+            const opacity = Math.random() * 0.5 + 0.5;
+            element.style.opacity = opacity;
+            
+            // Случайная задержка анимации
+            const delay = Math.random() * 5;
+            element.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(element);
+        }
+    </script>
+</body>
+</html>
